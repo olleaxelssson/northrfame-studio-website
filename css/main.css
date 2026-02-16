@@ -7,8 +7,8 @@
 }
 
 .logo:hover {
-  transition: transform 3s ease-in-out;
-  transform: rotateY(360deg);
+  transition: transform 0.3s ease;
+  transform: scale3d(1.1, 1, 1);
 }
 /* Add a container for the posters */
 
