@@ -7,7 +7,9 @@
     <link rel="icon" type="image/svg+xml" href="/img/okay-logo.svg" />
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css">
   </head>
+  
   <body>
     <header>
       <nav class="site-nav">
@@ -16,7 +18,7 @@
         /></a>
         <ul>
           <li><a href="products.html">PRODUCTS</a
-          </a></li>
+          ></a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
           <li><a href="cart.html"><img class="shopping-cart" src="img/shooping-cart.svg" alt="Shopping cart icon"></a></li>
@@ -25,8 +27,10 @@
     </header>
 
     <main>
-      <h1>CART</h1>
+      <h1>YOUR CART</h1>
+      <h1><button onclick="window.location.href='products.html'" class="product-back"> &laquo;  BACK</button></h1>
       <p id="cart">Your cart is currently empty.</p>
+      <h1><button id="clear-btn" class="clear-cart">Clear Cart</button></h1>
     </main>
 
     <footer>
