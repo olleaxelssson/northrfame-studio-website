@@ -2,7 +2,8 @@ const addBtn = document.getElementById("add-to-cart-btn");
 const cartBox = document.getElementById("cart");
 const clearBtn = document.getElementById("clear-btn");
 
-const productName = "THE EYE";
+const productName = "The Eye Poster";
+const productAlt = "Poster depicting an eye";
 const productPrice = 19.99;
 const productImage = "img/poster-01.jpg";
 const qtyKey = "cartQuantityPoster01";
@@ -21,7 +22,7 @@ function drawCart() {
   const itemTotal = productPrice * qty;
 
   cartBox.innerHTML = `
-    <img src="${productImage}" alt="${productName}" style="width: 20%; display: block; margin: 0 auto 10px;">
+    <img src="${productImage}" alt="${productAlt}" style="width: 20%; display: block; margin: 0 auto 10px;">
     ${productName} x ${qty} = $${itemTotal.toFixed(2)}<br>
     <button id="add-one-btn" class="clear-cart">Add one</button>
     <button id="remove-one-btn" class="clear-cart">Remove one</button><br>
