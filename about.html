@@ -1,29 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
-    <link rel="icon" type="image/svg+xml" href="/img/okay-logo.svg" />
+
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css">
+    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css" />
   </head>
+
   <body>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html"><img class="logo" src="img/NorthFrame-logo.svg" alt="NorthFrame logo"/></a></li>
+    <nav class="site-nav">
+      <div class="nav-container">
+        <a href="index.html">
+          <img
+            class="logo"
+            src="img/NorthFrame-logo.svg"
+            alt="NorthFrame logo"
+          />
+        </a>
+
+        <ul class="nav-links">
           <li><a href="products.html">PRODUCTS</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="cart.html"><img class="shopping-cart" src="img/shooping-cart.svg" alt="Shopping cart icon"></a></li>
+          <li>
+            <a href="cart.html">
+              <img
+                class="shopping-cart"
+                src="img/shooping-cart.svg"
+                alt="Shopping cart icon"
+              />
+            </a>
+          </li>
         </ul>
-      </nav>
-    <main>
-      <h1>ABOUT ME</h1>
-      <p>Wouldn't you like to know, weather boy?</p>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="products.html">PRODUCTS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="cart.html">CART</a>
+      </div>
+    </nav>
+
+    <main class="about-main">
+      <section class="about-header">
+        <h1>ABOUT THE STUDIO</h1>
+      </section>
+
+      <section class="about-content">
+        <div class="about-text-block">
+          <p>
+            NorthFrame Studio is a personal exploration of light, form, and
+            balance. Each piece is created with intention, blending minimalism
+            with strong visual composition.
+          </p>
+
+          <p>
+            What began as a passion for photography evolved into a curated
+            collection of contemporary prints designed to elevate modern spaces.
+          </p>
+
+          <p>
+            Every print is produced using high-quality materials to ensure
+            depth, clarity, and longevity.
+          </p>
+        </div>
+      </section>
     </main>
-    <footer>
+
+    <footer class="site-footer">
       <p>&copy; 2026 Olle Axelsson. All rights reserved.</p>
     </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const nav = document.querySelector(".site-nav");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>

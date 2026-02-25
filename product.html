@@ -1,52 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-    <link rel="icon" type="image/svg+xml" href="/img/okay-logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Eye</title>
+
     <link rel="stylesheet" href="css/main.css" />
-    <script src="js/main.js" defer></script>
-    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css">
+    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css" />
   </head>
+
   <body>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html"><img class="logo" src="img/NorthFrame-logo.svg" alt="NorthFrame logo"/></a></li>
+    <nav class="site-nav">
+      <div class="nav-container">
+        <a href="index.html">
+          <img
+            class="logo"
+            src="img/NorthFrame-logo.svg"
+            alt="NorthFrame logo"
+          />
+        </a>
+
+        <ul class="nav-links">
           <li><a href="products.html">PRODUCTS</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="cart.html"><img class="shopping-cart" src="img/shooping-cart.svg" alt="Shopping cart icon"></a></li>
+          <li>
+            <a href="cart.html">
+              <img
+                class="shopping-cart"
+                src="img/shooping-cart.svg"
+                alt="Shopping cart icon"
+              />
+            </a>
+          </li>
         </ul>
-      </nav>
-    <main>
-      <section>
-        <div class="product-title">
-          <h1>THE EYE</h1>
-          <p>Price: $19.99</p>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div>
-          <button onclick="window.location.href='products.html'" class="product-back"> &laquo;  BACK</button>
-        </div>
+      </div>
+    </nav>
+
+    <main class="product-main">
+      <section class="product-header">
+        <h1>THE EYE</h1>
+        <p>$19.99</p>
       </section>
 
       <section class="product-grid">
-        <div class="product-container">
-          <img class="poster-jpg" src="img/poster-01.jpg" alt="The Eye poster"></img>
-        </div>
-        <div class="product-container">
-          <p>The print comes in one size and is printed on high-quality paper, ensuring vibrant colors and sharp details. It's perfect for framing and displaying in your home or office.</p>
-        </div>
-      </section>
-
-      <section>
         <div>
-          <h1><button id="add-to-cart-btn" class="add-to-cart-btn">ADD TO CART</button></h1>
+          <img
+            class="poster-jpg"
+            src="img/poster-01.jpg"
+            alt="The Eye poster"
+          />
+        </div>
+
+        <div>
+          <p>
+            The print comes in one size and is printed on high-quality paper,
+            ensuring vibrant colors and sharp details.
+          </p>
+
+          <div class="quantity-selector">
+            <button id="decrease">−</button>
+            <span id="quantity">1</span>
+            <button id="increase">+</button>
+          </div>
+
+          <button id="add-to-cart" class="add-to-cart-btn">ADD TO CART</button>
         </div>
       </section>
     </main>
-    <footer>
+
+    <footer class="site-footer">
       <p>&copy; 2026 Olle Axelsson. All rights reserved.</p>
     </footer>
+
+    <script>
+      let quantity = 1;
+      const quantityDisplay = document.getElementById("quantity");
+
+      document.getElementById("increase").addEventListener("click", () => {
+        quantity++;
+        quantityDisplay.textContent = quantity;
+      });
+
+      document.getElementById("decrease").addEventListener("click", () => {
+        if (quantity > 1) {
+          quantity--;
+          quantityDisplay.textContent = quantity;
+        }
+      });
+
+      document.getElementById("add-to-cart").addEventListener("click", () => {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const existingItem = cart.find((item) => item.name === "THE EYE");
+
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({
+            name: "THE EYE",
+            price: 19.99,
+            image: "img/poster-01.jpg",
+            quantity: quantity,
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        quantity = 1;
+        quantityDisplay.textContent = 1;
+      });
+    </script>
   </body>
 </html>

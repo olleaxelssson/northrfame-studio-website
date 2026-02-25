@@ -1,34 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
-    <title>Home</title>
-    <link rel="icon" type="image/svg+xml" href="/img/okay-logo.svg" />
+    <title>NorthFrame Studio</title>
+
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css">
+    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css" />
   </head>
+
   <body>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html"><img class="logo" src="img/NorthFrame-logo.svg" alt="NorthFrame logo"/></a></li>
+    <nav class="site-nav">
+      <div class="nav-container">
+        <a href="index.html">
+          <img
+            class="logo"
+            src="img/NorthFrame-logo.svg"
+            alt="NorthFrame logo"
+          />
+        </a>
+
+        <ul class="nav-links">
           <li><a href="products.html">PRODUCTS</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="cart.html"><img class="shopping-cart" src="img/shooping-cart.svg" alt="Shopping cart icon"></a></li>
+          <li>
+            <a href="cart.html">
+              <img
+                class="shopping-cart"
+                src="img/shooping-cart.svg"
+                alt="Shopping cart icon"
+              />
+            </a>
+          </li>
         </ul>
-      </nav>
-    <main>
-      <h1>WELCOME</h1>
-      <p>
-        Welcome to my shop! Here you can find a selection of my latest prints,
-        as well as some information about me and my work. Feel free to browse
-        around and contact me if you have any questions or if you're interested
-        in purchasing a print. Thank you for visiting!
-      </p>
-    </main>
-    <footer>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="products.html">PRODUCTS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="cart.html">CART</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          CONTEMPORARY <br />
+          <span class="highlight-wrapper">
+            <span class="highlight-normal">PRINTS</span>
+            <span class="highlight-italic">PRINTS</span>
+          </span>
+          <br />
+          FOR MODERN SPACES
+        </h1>
+
+        <p class="hero-subtext">
+          A curated collection of original photography and art prints. Designed
+          to elevate your space with minimal, bold aesthetics.
+        </p>
+
+        <a href="products.html" class="hero-btn">EXPLORE COLLECTION</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <h3>Premium Quality</h3>
+        <p>Archival prints on museum-grade paper.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Original Work</h3>
+        <p>All artwork created and curated by NorthFrame Studio.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Worldwide Shipping</h3>
+        <p>Secure packaging and tracked delivery.</p>
+      </div>
+    </section>
+
+    <section class="about-preview">
+      <div class="about-text">
+        <h2>THE STUDIO</h2>
+        <p>
+          NorthFrame explores light, structure, and restraint. Each piece is
+          composed with intention — designed not to fill a wall, but to define a
+          space.
+        </p>
+
+        <a href="about.html" class="secondary-btn">LEARN MORE</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
       <p>&copy; 2026 Olle Axelsson. All rights reserved.</p>
     </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const nav = document.querySelector(".site-nav");
+      const highlightWrapper = document.querySelector(".highlight-wrapper");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        hamburger.classList.toggle("open");
+      });
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+
+        if (window.scrollY > 80) {
+          highlightWrapper.classList.add("active");
+        } else {
+          highlightWrapper.classList.remove("active");
+        }
+      });
+    </script>
   </body>
 </html>

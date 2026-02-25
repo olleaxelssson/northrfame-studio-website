@@ -1,35 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
-    <link rel="icon" type="image/svg+xml" href="/img/okay-logo.svg" />
+
     <link rel="stylesheet" href="css/main.css" />
-    <script src="js/main.js" defer></script>
-    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css">
+    <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css" />
   </head>
-  
+
   <body>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html"><img class="logo" src="img/NorthFrame-logo.svg" alt="NorthFrame logo"/></a></li>
+    <nav class="site-nav">
+      <div class="nav-container">
+        <a href="index.html">
+          <img
+            class="logo"
+            src="img/NorthFrame-logo.svg"
+            alt="NorthFrame logo"
+          />
+        </a>
+
+        <ul class="nav-links">
           <li><a href="products.html">PRODUCTS</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="cart.html"><img class="shopping-cart" src="img/shooping-cart.svg" alt="Shopping cart icon"></a></li>
+          <li>
+            <a href="cart.html">
+              <img
+                class="shopping-cart"
+                src="img/shooping-cart.svg"
+                alt="Shopping cart icon"
+              />
+            </a>
+          </li>
         </ul>
-      </nav>
 
-    <main>
-      <h1>YOUR CART</h1>
-      <h1><button onclick="window.location.href='products.html'" class="product-back"> &laquo;  BACK</button></h1>
-      <p id="cart">Your cart is currently empty.</p>
-      <h1><button id="clear-btn" class="clear-cart">Clear Cart</button></h1>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="products.html">PRODUCTS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="cart.html">CART</a>
+      </div>
+    </nav>
+
+    <main class="cart-main">
+      <section class="cart-header">
+        <h1>CART</h1>
+      </section>
+
+      <section id="cart-items" class="cart-items"></section>
+
+      <section class="cart-summary">
+        <div class="cart-total">
+          <span>TOTAL</span>
+          <span id="cart-total-price">$0.00</span>
+        </div>
+
+        <button id="clear-cart" class="secondary-btn">CLEAR CART</button>
+
+        <button class="add-to-cart-btn">CHECKOUT</button>
+      </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <p>&copy; 2026 Olle Axelsson. All rights reserved.</p>
     </footer>
+
+    <script src="js/cart.js"></script>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const nav = document.querySelector(".site-nav");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>
