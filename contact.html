@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
-
+    <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://use.typekit.net/axm5dqv.css" />
   </head>
@@ -70,23 +70,5 @@
     <footer class="site-footer">
       <p>&copy; 2026 Olle Axelsson. All rights reserved.</p>
     </footer>
-
-    <script>
-      const hamburger = document.getElementById("hamburger");
-      const mobileMenu = document.getElementById("mobileMenu");
-      const nav = document.querySelector(".site-nav");
-
-      hamburger.addEventListener("click", () => {
-        mobileMenu.classList.toggle("active");
-      });
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 40) {
-          nav.classList.add("scrolled");
-        } else {
-          nav.classList.remove("scrolled");
-        }
-      });
-    </script>
   </body>
 </html>
